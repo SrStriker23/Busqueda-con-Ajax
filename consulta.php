@@ -30,6 +30,8 @@ if ($buscarformulario->num_rows > 0) {
             <td>Sexo</td>
             <td>Fecha de nacimiento</td>
             <td>Edad</td>
+            <td></td>
+            <td></td>
         </tr>';
     while ($filaformulario = $buscarformulario->fetch_assoc()) {
         $tabla .=
@@ -41,6 +43,12 @@ if ($buscarformulario->num_rows > 0) {
                 <td>' . $filaformulario['sexo'] . '</td>
                 <td>' . $filaformulario['fecha_nacimiento'] . '</td>
                 <td>' . $filaformulario['edad'] . '</td>
+                <td>
+                    <a href="pagina-modificar.php?rut=' . $filaformulario['rut'] . '" class="btn btn-info">Editar</a>
+                </td>
+                <td>
+                    <a onclick="return eliminar()" href="principal.php?rut=' . $filaformulario['rut'] . '" class="btn btn-danger">Eliminar</a>
+                </td>
             </tr>';
     }
     $tabla .= '</table>';
