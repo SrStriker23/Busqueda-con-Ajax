@@ -13,10 +13,10 @@ if (isset($_POST['formulario'])) {
         nombre LIKE '%" . $q . "%' OR
         apellidos LIKE '%" . $q . "%' OR
         rut LIKE '%" . $q . "%' OR
-        direccion LIKE '%" . $q . "%' OR
+        usuario LIKE '%" . $q . "%' OR
+        contraseña LIKE '%" . $q . "%' OR
         sexo LIKE '%" . $q . "%' OR
-        fecha_nacimiento LIKE '%" . $q . "%' OR
-        edad LIKE '%" . $q . "%'";
+        fecha_nacimiento LIKE '%" . $q . "%'";
 }
 $buscarformulario = $conexion->query($query);
 if ($buscarformulario->num_rows > 0) {
@@ -26,10 +26,10 @@ if ($buscarformulario->num_rows > 0) {
             <td>Nombre</td>
             <td>Apellidos</td>
             <td>Rut</td>
-            <td>Direccion</td>
+            <td>Usuario</td>
+            <td>Contraseña</td>
             <td>Sexo</td>
             <td>Fecha de nacimiento</td>
-            <td>Edad</td>
             <td></td>
             <td></td>
         </tr>';
@@ -39,10 +39,10 @@ if ($buscarformulario->num_rows > 0) {
                 <td>' . $filaformulario['nombre'] . '</td>
                 <td>' . $filaformulario['apellidos'] . '</td>
                 <td>' . $filaformulario['rut'] . '</td>
-                <td>' . $filaformulario['direccion'] . '</td>
+                <td>' . $filaformulario['usuario'] . '</td>
+                <td>' . $filaformulario['contraseña'] . '</td>
                 <td>' . $filaformulario['sexo'] . '</td>
                 <td>' . $filaformulario['fecha_nacimiento'] . '</td>
-                <td>' . $filaformulario['edad'] . '</td>
                 <td>
                     <a href="pagina-modificar.php?rut=' . $filaformulario['rut'] . '" class="btn btn-info">Editar</a>
                 </td>
